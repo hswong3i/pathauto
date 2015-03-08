@@ -54,9 +54,10 @@ class PathautoAdminDelete extends FormBase {
 
     foreach ($objects as $internal_name => $label) {
       $count = db_query("SELECT count(1) FROM {url_alias} WHERE source LIKE :src", array(':src' => "$internal_name%"))->fetchField();
+      // This label is sent through t() in the hard coded function where it is defined.
       $form['delete'][$internal_name] = array(
         '#type' => 'checkbox',
-        '#title' => $label, // This label is sent through t() in the hard coded function where it is defined.
+        '#title' => $label,
         '#default_value' => FALSE,
         '#description' => t('Delete aliases for all @label. Number of aliases which will be deleted: %count.', array('@label' => $label, '%count' => $count)),
       );

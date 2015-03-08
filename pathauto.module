@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @file
+ * Main file for the Pathauto module, which automatically generates aliases for content.
+ *
+ * @ingroup pathauto
+ */
+
 /**
  * @defgroup pathauto Pathauto: Automatically generates aliases for content
  *
@@ -8,14 +16,6 @@
  * /category/my-node-title.html instead of /node/123. The aliases are based upon
  * a "pattern" system which the administrator can control.
  */
-
-/**
- * @file
- * Main file for the Pathauto module, which automatically generates aliases for content.
- *
- * @ingroup pathauto
- */
-
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -93,10 +93,10 @@ function pathauto_help($route_name, RouteMatchInterface $route_match) {
  * Intent of this is to abstract a potential path_delete_multiple() function
  * for Drupal 7 or 8.
  *
- * @param $pids
+ * @param array $pids
  *   An array of path IDs to delete.
  */
-function pathauto_path_delete_multiple($pids) {
+function pathauto_path_delete_multiple(array $pids) {
   foreach ($pids as $pid) {
     \Drupal::service('path.alias_storage')->delete(array('pid' => $pid));
   }
@@ -108,7 +108,7 @@ function pathauto_path_delete_multiple($pids) {
  * Given a source like 'node/1' this function will delete any alias that have
  * that specific source or any sources that match 'node/1/%'.
  *
- * @param $source
+ * @param string $source
  *   An string with a source URL path.
  */
 function pathauto_path_delete_all($source) {
@@ -310,7 +310,7 @@ function pathauto_entity_base_field_info_alter(&$fields, EntityTypeInterface $en
  */
 function pathauto_entity_base_field_info(EntityTypeInterface $entity_type) {
   // @todo: Make this configurable and/or remove if
-  //   https://drupal.org/node/476294 is resolved.
+  // https://drupal.org/node/476294 is resolved.
   if ($entity_type->id() === 'user') {
     $fields['path'] = BaseFieldDefinition::create('path')
       ->setCustomStorage(TRUE)

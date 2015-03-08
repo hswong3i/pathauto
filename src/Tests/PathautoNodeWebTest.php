@@ -32,9 +32,9 @@ class PathautoNodeWebTest extends WebTestBase {
   protected $adminUser;
 
   /**
-   * {inheritdoc}
+   * {@inheritdoc}
    */
-  function setUp() {
+  public function setUp() {
     parent::setUp();
 
     $this->drupalCreateContentType(array('type' => 'page', 'name' => 'Basic page'));
@@ -56,7 +56,7 @@ class PathautoNodeWebTest extends WebTestBase {
   /**
    * Tests editing nodes with different settings.
    */
-  function testNodeEditing() {
+  public function testNodeEditing() {
     // Ensure that the Pathauto checkbox is checked by default on the node add form.
     $this->drupalGet('node/add/page');
     $this->assertFieldChecked('edit-path-0-pathauto');
@@ -128,7 +128,7 @@ class PathautoNodeWebTest extends WebTestBase {
     $edit = array();
     $edit['title'] = 'My test article';
     $this->drupalCreateNode($edit);
-    //$this->drupalPostForm(NULL, $edit, t('Save and keep published'));
+    // $this->drupalPostForm(NULL, $edit, t('Save and keep published'));
     $node = $this->drupalGetNodeByTitle($edit['title']);
 
     // Pathauto checkbox should still not exist.
@@ -141,7 +141,7 @@ class PathautoNodeWebTest extends WebTestBase {
   /**
    * Test node operations.
    */
-  function testNodeOperations() {
+  public function testNodeOperations() {
     $node1 = $this->drupalCreateNode(array('title' => 'node1'));
     $node2 = $this->drupalCreateNode(array('title' => 'node2'));
 

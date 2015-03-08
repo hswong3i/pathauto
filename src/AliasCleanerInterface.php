@@ -2,8 +2,9 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\AliasCleanerInterface
+ * Contains Drupal\pathauto\AliasCleanerInterface.
  */
+
 namespace Drupal\pathauto;
 
 /**
@@ -42,4 +43,5 @@ interface AliasCleanerInterface {
    * @see pathauto_clean_alias()
    */
   public function getCleanSeparators($string, $separator = NULL);
+
 }

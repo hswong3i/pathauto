@@ -40,9 +40,9 @@ class PathautoBulkUpdateTest extends WebTestBase {
   protected $nodes;
 
   /**
-   * {inheritdoc}
+   * {@inheritdoc}
    */
-  function setUp() {
+  public function setUp() {
     parent::setUp();
 
     // Allow other modules to add additional permissions for the admin user.
@@ -56,7 +56,7 @@ class PathautoBulkUpdateTest extends WebTestBase {
   }
 
 
-  function testBulkUpdate() {
+  public function testBulkUpdate() {
     // Create some nodes.
     $this->nodes = array();
     for ($i = 1; $i <= 5; $i++) {
@@ -73,7 +73,8 @@ class PathautoBulkUpdateTest extends WebTestBase {
       'update[user_pathauto_bulk_update_batch_process]' => TRUE,
     );
     $this->drupalPostForm('admin/config/search/path/update_bulk', $edit, t('Update'));
-    $this->assertText('Generated 7 URL aliases.'); // 5 nodes + 2 users
+    // 5 nodes + 2 users.
+    $this->assertText('Generated 7 URL aliases.');
 
     // Check that aliases have actually been created.
     foreach ($this->nodes as $node) {
@@ -86,8 +87,10 @@ class PathautoBulkUpdateTest extends WebTestBase {
 
     // Run the update again which should only run against the new node.
     $this->drupalPostForm('admin/config/search/path/update_bulk', $edit, t('Update'));
-    $this->assertText('Generated 1 URL alias.'); // 1 node + 0 users
+    // 1 node + 0 users.
+    $this->assertText('Generated 1 URL alias.');
 
     $this->assertEntityAliasExists($new_node);
   }
+
 }

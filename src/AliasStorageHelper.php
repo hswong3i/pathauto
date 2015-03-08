@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\AliasSchemaHelper
+ * Contains Drupal\pathauto\AliasSchemaHelper.
  */
 
 namespace Drupal\pathauto;

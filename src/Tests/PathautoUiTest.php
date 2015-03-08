@@ -33,9 +33,9 @@ class PathautoUiTest extends WebTestBase {
   protected $adminUser;
 
   /**
-   * {inheritdoc}
+   * {@inheritdoc}
    */
-  function setUp() {
+  public function setUp() {
     parent::setUp();
 
     $this->drupalCreateContentType(array('type' => 'page', 'name' => 'Basic page'));
@@ -54,7 +54,7 @@ class PathautoUiTest extends WebTestBase {
     $this->drupalLogin($this->adminUser);
   }
 
-  function testSettingsValidation() {
+  public function testSettingsValidation() {
     $edit = array();
     $edit['max_length'] = 'abc';
     $edit['max_component_length'] = 'abc';
@@ -83,7 +83,7 @@ class PathautoUiTest extends WebTestBase {
     $this->assertText('The configuration options have been saved.');
   }
 
-  function testPatternsValidation() {
+  public function testPatternsValidation() {
     $edit = array();
     $this->drupalGet('admin/config/search/path/patterns');
     $edit['node[default]'] = '[node:title]/[user:name]/[term:name]';

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\VerboseMessengerTest
+ * Contains Drupal\pathauto\VerboseMessengerTest.
  */
 
 namespace Drupal\Tests\pathauto {
@@ -40,6 +40,7 @@ namespace Drupal\Tests\pathauto {
 
     /**
      * Tests add messages.
+     *
      * @covers ::addMessage
      */
     public function testAddMessage() {
@@ -49,14 +50,15 @@ namespace Drupal\Tests\pathauto {
 
     /**
      * Tests add messages.
+     *
      * @covers ::addMessage
      */
     public function testNotAddMessage() {
       // Test adding a message.
       $this->assertFalse($this->messenger->addMessage("Test message", "bulkupdate"), "The message was NOT added");
     }
-  }
 
+  }
 }
 namespace {
   // @todo Delete after https://drupal.org/node/1858196 is in.
@@ -65,4 +67,3 @@ namespace {
     }
   }
 }
-

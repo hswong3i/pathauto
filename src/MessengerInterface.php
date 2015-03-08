@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\MessengerInterface
+ * Contains Drupal\pathauto\MessengerInterface.
  */
 
 namespace Drupal\pathauto;

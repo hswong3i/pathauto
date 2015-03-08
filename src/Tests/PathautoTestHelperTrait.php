@@ -20,11 +20,20 @@ trait PathautoTestHelperTrait {
   public function assertToken($type, $object, $token, $expected) {
     $tokens = \Drupal::token()->generate($type, array($token => $token), array($type => $object));
     $tokens += array($token => '');
-    $this->assertIdentical($tokens[$token], $expected, t("Token value for [@type:@token] was '@actual', expected value '@expected'.", array('@type' => $type, '@token' => $token, '@actual' => $tokens[$token], '@expected' => $expected)));
+    $this->assertIdentical($tokens[$token], $expected, t("Token value for [@type:@token] was '@actual', expected value '@expected'.", array(
+      '@type' => $type,
+      '@token' => $token,
+      '@actual' => $tokens[$token],
+      '@expected' => $expected,
+    )));
   }
 
   public function saveAlias($source, $alias, $langcode = Language::LANGCODE_NOT_SPECIFIED) {
-    \Drupal::service('path.alias_storage')->delete(array('source' => $source, 'language', 'langcode' => $langcode));
+    \Drupal::service('path.alias_storage')->delete(array(
+      'source' => $source,
+      'language',
+      'langcode' => $langcode,
+    ));
     return \Drupal::service('path.alias_storage')->save($source, $alias, $langcode);
   }
 
@@ -68,8 +77,12 @@ trait PathautoTestHelperTrait {
         break;
       }
     }
-    $this->assertIdentical($alias['alias'], $expected_alias, t("Alias for %source with language '@language' was %actual, expected %expected.",
-      array('%source' => $source, '%actual' => $alias['alias'], '%expected' => $expected_alias, '@language' => $langcode)));
+    $this->assertIdentical($alias['alias'], $expected_alias, t("Alias for %source with language '@language' was %actual, expected %expected.", array(
+      '%source' => $source,
+      '%actual' => $alias['alias'],
+      '%expected' => $expected_alias,
+      '@language' => $langcode,
+    )));
   }
 
   public function assertAliasExists($conditions) {
@@ -90,6 +103,7 @@ trait PathautoTestHelperTrait {
 
   /**
    * @param array $values
+   *
    * @return \Drupal\taxonomy\VocabularyInterface
    */
   public function addVocabulary(array $values = array()) {
@@ -128,4 +142,5 @@ trait PathautoTestHelperTrait {
     $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties(array('name' => $name));
     return !empty($terms) ? reset($terms) : FALSE;
   }
+
 }

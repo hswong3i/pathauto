@@ -1,5 +1,4 @@
 <?php
-use Drupal\Core\Language\Language;
 
 /**
  * @file
@@ -8,6 +7,8 @@ use Drupal\Core\Language\Language;
  * @see hook_token_info
  * @see hook_tokens
  */
+
+use Drupal\Core\Language\Language;
 
 function hook_path_alias_types() {
 }
@@ -28,7 +29,7 @@ function hook_pathauto($op) {
  * @param string $langcode
  *   The language code for the alias (e.g. 'en').
  *
- * @return
+ * @return bool
  *   TRUE if $alias conflicts with an existing, reserved path, or FALSE/NULL if
  *   it does not match any reserved paths.
  *
@@ -93,7 +94,7 @@ function hook_pathauto_alias_alter(&$alias, array &$context) {
 /**
  * Alter the list of punctuation characters for Pathauto control.
  *
- * @param $punctuation
+ * @param array $punctuation
  *   An array of punctuation to be controlled by Pathauto during replacement
  *   keyed by punctuation name. Each punctuation record should be an array
  *   with the following key/value pairs:

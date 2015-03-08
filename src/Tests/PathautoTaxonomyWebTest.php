@@ -32,9 +32,9 @@ class PathautoTaxonomyWebTest extends WebTestBase {
   protected $adminUser;
 
   /**
-   * {inheritdoc}
+   * {@inheritdoc}
    */
-  function setUp() {
+  public function setUp() {
     parent::setUp();
 
     // Allow other modules to add additional permissions for the admin user.
@@ -52,7 +52,7 @@ class PathautoTaxonomyWebTest extends WebTestBase {
   /**
    * Basic functional testing of Pathauto with taxonomy terms.
    */
-  function testTermEditing() {
+  public function testTermEditing() {
     $this->drupalGet('admin/structure');
     $this->drupalGet('admin/structure/taxonomy');
 
@@ -101,6 +101,5 @@ class PathautoTaxonomyWebTest extends WebTestBase {
     $this->drupalGet($manual_alias);
     $this->assertText($name, 'Term accessible through manual alias.');
   }
-
 
 }

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\AliasTypeInterface
+ * Contains Drupal\pathauto\AliasTypeInterface.
  */
 
 namespace Drupal\pathauto;

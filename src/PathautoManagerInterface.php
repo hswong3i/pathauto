@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Contains Drupal\pathauto\PathautoManagerInterface
+ * Contains Drupal\pathauto\PathautoManagerInterface.
  */
 
 namespace Drupal\pathauto;
@@ -15,17 +16,17 @@ use Drupal\Core\Language\LanguageInterface;
 interface PathautoManagerInterface {
 
   /**
-   * "Do nothing. Leave the old alias intact."
+   * Do nothing. Leave the old alias intact.
    */
   const UPDATE_ACTION_NO_NEW = 0;
 
   /**
-   * "Create a new alias. Leave the existing alias functioning."
+   * Create a new alias. Leave the existing alias functioning.
    */
   const UPDATE_ACTION_LEAVE = 1;
 
   /**
-   * "Create a new alias. Delete the old alias."
+   * Create a new alias. Delete the old alias.
    */
   const UPDATE_ACTION_DELETE = 2;
 
@@ -119,7 +120,7 @@ interface PathautoManagerInterface {
    *
    * @see _pathauto_set_alias()
    */
-  public function createAlias($module, $op, $source, $data, $type = NULL, $langcode = LanguageInterface::LANGCODE_NOT_SPECIFIED);
+  public function createAlias($module, $op, $source, array $data, $type = NULL, $langcode = LanguageInterface::LANGCODE_NOT_SPECIFIED);
 
   /**
    * Return an array of arrays for punctuation values.
@@ -140,10 +141,10 @@ interface PathautoManagerInterface {
    * @param EntityInterface $entity
    *   Entity for which to update the alias.
    * @param string $op
-   *   The operation performed (insert, update)
+   *   The operation performed (insert, update).
    * @param array $options
-   *   - force: will force updating the path
-   *   - language: the language for which to create the alias
+   *   - force: will force updating the path.
+   *   - language: the language for which to create the alias.
    *
    * @return array|null
    *   - An array with alias data in case the alias has been created or updated.
@@ -162,6 +163,6 @@ interface PathautoManagerInterface {
    * @param array $options
    *   An array of options used to generate the replacements.
    */
-  public function cleanTokenValues(&$replacements, $data = array(), $options = array());
+  public function cleanTokenValues(array &$replacements, array $data = array(), array $options = array());
 
 }

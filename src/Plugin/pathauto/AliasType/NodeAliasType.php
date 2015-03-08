@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\Plugin\AliasType\NodeAliasType
+ * Contains Drupal\pathauto\Plugin\AliasType\NodeAliasType.
  */
 
 namespace Drupal\pathauto\Plugin\pathauto\AliasType;

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\AliasCleaner
+ * Contains Drupal\pathauto\AliasCleaner.
  */
 
 namespace Drupal\pathauto;

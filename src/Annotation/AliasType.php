@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\Plugin\Annotation\AliasType
+ * Contains Drupal\pathauto\Plugin\Annotation\AliasType.
  */
 
 namespace Drupal\pathauto\Annotation;

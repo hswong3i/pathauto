@@ -52,6 +52,7 @@ class PathautoManager implements PathautoManagerInterface {
 
   /**
    * Language manager.
+   *
    * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
@@ -544,4 +545,5 @@ class PathautoManager implements PathautoManagerInterface {
       }
     }
   }
+
 }

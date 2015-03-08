@@ -72,7 +72,10 @@ class PathautoBulkUpdateForm extends FormBase {
       if (!empty($callback)) {
         $settings = $form['#update_callbacks'][$callback];
         if (!empty($settings->batch_file)) {
-          $batch['operations'][] = array('Drupal\pathauto\Form\PathautoBulkUpdateForm::batchProcess', array($callback, $settings));
+          $batch['operations'][] = array(
+            'Drupal\pathauto\Form\PathautoBulkUpdateForm::batchProcess',
+            array($callback, $settings)
+          );
         }
         else {
           $batch['operations'][] = array($callback, array());
@@ -120,7 +123,10 @@ class PathautoBulkUpdateForm extends FormBase {
     }
     else {
       $error_operation = reset($operations);
-      drupal_set_message(t('An error occurred while processing @operation with arguments : @args', array('@operation' => $error_operation[0], '@args' => print_r($error_operation[0], TRUE))));
+      drupal_set_message(t('An error occurred while processing @operation with arguments : @args', array(
+        '@operation' => $error_operation[0],
+        '@args' => print_r($error_operation[0], TRUE)
+      )));
     }
   }
 

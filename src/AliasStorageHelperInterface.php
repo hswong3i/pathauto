@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\pathauto\AliasStorageHelperInterface
+ * Contains \Drupal\pathauto\AliasStorageHelperInterface.
  */
 
 namespace Drupal\pathauto;

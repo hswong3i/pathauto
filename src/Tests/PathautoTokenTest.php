@@ -60,10 +60,20 @@ class PathautoTokenTest extends KernelTestBase {
         $this->fail(t("Token value for @token was not generated.", array('@type' => $type, '@token' => $token)));
       }
       elseif (!empty($options['regex'])) {
-        $this->assertTrue(preg_match('/^' . $expected . '$/', $replacements[$token]), t("Token value for @token was '@actual', matching regular expression pattern '@expected'.", array('@type' => $type, '@token' => $token, '@actual' => $replacements[$token], '@expected' => $expected)));
+        $this->assertTrue(preg_match('/^' . $expected . '$/', $replacements[$token]), t("Token value for @token was '@actual', matching regular expression pattern '@expected'.", array(
+          '@type' => $type,
+          '@token' => $token,
+          '@actual' => $replacements[$token],
+          '@expected' => $expected,
+        )));
       }
       else {
-        $this->assertIdentical($replacements[$token], $expected, t("Token value for @token was '@actual', expected value '@expected'.", array('@type' => $type, '@token' => $token, '@actual' => $replacements[$token], '@expected' => $expected)));
+        $this->assertIdentical($replacements[$token], $expected, t("Token value for @token was '@actual', expected value '@expected'.", array(
+          '@type' => $type,
+          '@token' => $token,
+          '@actual' => $replacements[$token],
+          '@expected' => $expected,
+        )));
       }
     }
 
@@ -77,4 +87,5 @@ class PathautoTokenTest extends KernelTestBase {
     }
     return $return;
   }
+
 }

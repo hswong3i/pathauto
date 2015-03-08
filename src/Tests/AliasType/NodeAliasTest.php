@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\Tests\AliasType\NodeAliasTest
+ * Contains Drupal\pathauto\Tests\AliasType\NodeAliasTest.
  */
 
 namespace Drupal\pathauto\Tests\AliasType;
@@ -21,10 +21,16 @@ class NodeAliasTest extends KernelTestBase {
    *
    * @var array
    */
-  public static $modules = array('pathauto','path', 'node', 'user', 'token');
+  public static $modules = array(
+    'pathauto',
+    'path',
+    'node',
+    'user',
+    'token',
+  );
 
   /**
-   *
+   * Tests the node alias plugin.
    */
   public function testNodeAlias() {
     /** @var \Drupal\pathauto\AliasTypeManager $manager */

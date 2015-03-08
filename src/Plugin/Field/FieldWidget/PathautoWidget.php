@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Contains: Drupal\pathauto\Plugin\Field\FieldWidget\PathautoWidget
+ * Contains: Drupal\pathauto\Plugin\Field\FieldWidget\PathautoWidget.
  */
 
 namespace Drupal\pathauto\Plugin\Field\FieldWidget;
@@ -50,13 +51,10 @@ class PathautoWidget extends PathWidget {
       '#element_validate' => array('path_form_element_validate'),
     );*/
 
-
-
     $pattern = \Drupal::service('pathauto.manager')->getPatternByEntity($entity->getEntityTypeId(), $entity->bundle(), $entity->language()->getId());
     if (empty($pattern)) {
       return $element;
     }
-
 
     if (!isset($entity->path->pathauto)) {
       if (!$entity->isNew()) {
@@ -81,7 +79,6 @@ class PathautoWidget extends PathWidget {
     // alias checkbox is checked.
     $element['alias']['#states']['!enabled']['input[name="path[pathauto]"]'] = array('checked' => TRUE);
 
-
     // Override path.module's vertical tabs summary.
     $element['alias']['#attached']['library'] = ['pathauto/widget'];
 
@@ -89,7 +86,6 @@ class PathautoWidget extends PathWidget {
       $element['alias']['#default_value'] = $entity->old_alias;
       $entity->path->alias = $entity->old_alias;
     }
-
 
     // For Pathauto to remember the old alias and prevent the Path module from
     // deleting it when Pathauto wants to preserve it.
@@ -102,4 +98,5 @@ class PathautoWidget extends PathWidget {
 
     return $element;
   }
+
 }

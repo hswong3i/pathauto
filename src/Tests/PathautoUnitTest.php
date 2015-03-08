@@ -21,7 +21,20 @@ class PathautoUnitTest extends KernelTestBase {
 
   use PathautoTestHelperTrait;
 
-  public static $modules = array('system', 'entity', 'field', 'text', 'user', 'node', 'path', 'pathauto', 'taxonomy', 'token', 'menu_link', 'filter');
+  public static $modules = array(
+    'system',
+    'entity',
+    'field',
+    'text',
+    'user',
+    'node',
+    'path',
+    'pathauto',
+    'taxonomy',
+    'token',
+    'menu_link',
+    'filter',
+  );
 
   protected $currentUser;
 
@@ -246,8 +259,8 @@ class PathautoUnitTest extends KernelTestBase {
   }
 
   /**
-   * Test that \Drupal::service('pathauto.manager')->createAlias() will not create an alias for a pattern
-   * that does not get any tokens replaced.
+   * Test that \Drupal::service('pathauto.manager')->createAlias() will not
+   * create an alias for a pattern that does not get any tokens replaced.
    */
   public function testNoTokensNoAlias() {
     $node = $this->drupalCreateNode(array('title' => ''));
@@ -303,7 +316,7 @@ class PathautoUnitTest extends KernelTestBase {
     $this->assertEntityPattern('taxonomy_term', 'new_name', Language::LANGCODE_NOT_SPECIFIED, 'base');
   }
 
-  function testNoExistingPathAliases() {
+  public function testNoExistingPathAliases() {
 
     $this->config('pathauto.settings')
       ->set('punctuation.period', PathautoManagerInterface::PUNCTUATION_DO_NOTHING)
@@ -337,7 +350,7 @@ class PathautoUnitTest extends KernelTestBase {
   /**
    * Test programmatic entity creation for aliases.
    */
-  function testProgrammaticEntityCreation() {
+  public function testProgrammaticEntityCreation() {
     $node = $this->drupalCreateNode(array('title' => 'Test node', 'path' => array('pathauto' => TRUE)));
     $this->assertEntityAlias($node, 'content/test-node');
 
@@ -367,4 +380,5 @@ class PathautoUnitTest extends KernelTestBase {
 
     return $node;
   }
+
 }

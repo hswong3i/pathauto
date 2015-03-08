@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\AliasUniquifier
+ * Contains Drupal\pathauto\AliasUniquifier.
  */
 
 namespace Drupal\pathauto;

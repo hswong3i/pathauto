@@ -6,6 +6,7 @@
  *
  * @ingroup pathauto
  */
+
 use Drupal\Core\Language\Language;
 
 /**
@@ -202,7 +203,7 @@ function taxonomy_pathauto_bulk_update_batch_process(&$context) {
 }
 
 /**
- * Implements hook_pathauto() for forum module.
+ * Implements hook_pathauto().
  */
 function forum_pathauto($op) {
   switch ($op) {

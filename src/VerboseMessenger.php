@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\pathauto\VerboseMessenger
+ * Contains Drupal\pathauto\VerboseMessenger.
  */
 
 namespace Drupal\pathauto;

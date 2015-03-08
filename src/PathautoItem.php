@@ -36,4 +36,4 @@ class PathautoItem extends PathItem {
     }
   }
 
-} 
+}
